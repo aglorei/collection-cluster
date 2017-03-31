@@ -3,15 +3,6 @@
 # COMMENTS:
 # This installs and provides the dependency necessary to have collectd poll the
 # status ngx_http_stub_status_module.
-# USAGE:
-# Build collectd image
-# docker build -t collectd
-#
-# Run collectd
-# docker run -d --name=collectd  \
-# -e NGINX_SERVER_DOMAIN=<nginx_server_domain>
-# --volumes-from persistent-storage-container \
-#  collectd
 
 # Base image
 FROM debian:jessie

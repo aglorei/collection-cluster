@@ -7,22 +7,22 @@ services:
     environment:
       NGINX_SERVER_DOMAIN: "${NGINX_SERVER_DOMAIN}"
     volumes:
-      - data-volume:/var/lib/collectd
+      - collectd-volume:/var/lib/collectd
     networks:
       - internal-bridge
   influxdb:
     image: influxdb:1.2.2
-    depends_on:
-      - collectd
     ports:
       - "25826:25826"
       - "8086:8086"
     volumes:
+      - collectd-volume:/var/lib/collectd
+      - influxdb-volume:/var/lib/influxdb
       - ./influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro
-      - data-volume:/var/lib/influxdb
-      - data-volume:/var/lib/collectd
     networks:
       - internal-bridge
+    depends_on:
+      - collectd
   grafana:
     image: grafana/grafana:4.2.0
     environment:
@@ -32,12 +32,14 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - data-volume:/var/lib/grafana
+      - grafana-volume:/var/lib/grafana
     networks:
       - internal-bridge
 
 volumes:
-  data-volume:
+  collectd-volume:
+  influxdb-volume:
+  grafana-volume:
 
 networks:
   internal-bridge:
