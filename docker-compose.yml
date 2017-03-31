@@ -7,7 +7,6 @@ services:
     environment:
       NGINX_SERVER_DOMAIN: "${NGINX_SERVER_DOMAIN}"
     volumes:
-      - ./collectd/collectd.conf:/etc/collectd/collectd.conf:ro
       - data-volume:/var/lib/collectd
     networks:
       - internal-bridge
@@ -25,7 +24,7 @@ services:
     networks:
       - internal-bridge
   grafana:
-    image: grafana:4.2.0
+    image: grafana/grafana:4.2.0
     environment:
       GF_SERVER_PROTOCOL: "http"
       GF_SERVER_ROOT_URL: "%(protocol)s://%(domain)s:/grafana"
