@@ -22,14 +22,13 @@
 
 # Logs and databases #
 ######################
-logs/
 *.log
 *.sql
 *.sqlite
 
-# sensitive files #
-###################
-ssl/
+# ENV configuration #
+######################
+*.env
 
 # OS generated files #
 ######################
