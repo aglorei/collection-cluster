@@ -4,7 +4,7 @@ services:
   influxdb:
     image: influxdb:1.2.2
     ports:
-      - "25826:25826"
+      - "25826:25826/udp"
       - "8086:8086"
     volumes:
       - influxdb-volume:/var/lib/influxdb
