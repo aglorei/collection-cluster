@@ -9,7 +9,7 @@ services:
       - influxdb-volume:/var/lib/influxdb
       - ./influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro
     networks:
-      - internal-bridge
+      - collection-cluster-network
   grafana:
     image: grafana/grafana:4.2.0
     environment:
@@ -21,11 +21,11 @@ services:
     volumes:
       - grafana-volume:/var/lib/grafana
     networks:
-      - internal-bridge
+      - collection-cluster-network
 
 volumes:
   influxdb-volume:
   grafana-volume:
 
 networks:
-  internal-bridge:
+  collection-cluster-network:
