@@ -4,12 +4,10 @@ services:
   influxdb:
     image: influxdb:1.2.2
     ports:
-      - "25826:25826/udp"
       - "8086:8086"
     volumes:
       - influxdb-volume:/var/lib/influxdb
       - ./influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro
-      - ./influxdb/types.db:/etc/influxdb/types.db:ro
     networks:
       - internal-bridge
   grafana:
