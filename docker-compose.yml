@@ -7,7 +7,6 @@ services:
       - "8086:8086"
     volumes:
       - influxdb-volume:/var/lib/influxdb
-      - ./influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro
     networks:
       - collection-cluster-network
   grafana:
