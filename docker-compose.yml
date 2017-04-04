@@ -9,6 +9,10 @@ services:
       - influxdb-volume:/var/lib/influxdb
     networks:
       - collection-cluster-network
+    logging:
+      driver: syslog
+      options:
+        syslog-address: "${SYSLOG_ADDRESS}"
   grafana:
     image: grafana/grafana:4.2.0
     environment:
@@ -21,6 +25,10 @@ services:
       - grafana-volume:/var/lib/grafana
     networks:
       - collection-cluster-network
+    logging:
+      driver: syslog
+      options:
+        syslog-address: "${SYSLOG_ADDRESS}"
 
 volumes:
   influxdb-volume:
