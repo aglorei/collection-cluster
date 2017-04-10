@@ -1,4 +1,4 @@
-# InfluxDB and Grafana Cluster
+# InfluxDB and Grafana Group
 
 This repository configures an InfluxDB server for recording metrics and a Grafana server as the web frontend for dashboard visualizations.
 
