@@ -2,7 +2,7 @@
 
 This repository configures an InfluxDB server for recording metrics and a Grafana server as the web frontend for dashboard visualizations.
 
-- [InfluxDB 1.2.2](https://hub.docker.com/_/influxdb/)
+- [InfluxDB 1.2.2-alpine](https://hub.docker.com/_/influxdb/)
   - The image exposes a shared volume under /var/lib/influxdb, which is mounted as a Docker volume called `influxdb-volume` for peristent container data
   - Binds external port 8086 for communication over the HTTP API
 - [Grafana 4.2.0](https://hub.docker.com/r/grafana/grafana/)
