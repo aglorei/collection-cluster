@@ -8,7 +8,7 @@ services:
     volumes:
       - influxdb-volume:/var/lib/influxdb
     networks:
-      - collection-cluster-network
+      - collection-group-network
     logging:
       driver: syslog
       options:
@@ -24,7 +24,7 @@ services:
     volumes:
       - grafana-volume:/var/lib/grafana
     networks:
-      - collection-cluster-network
+      - collection-group-network
     logging:
       driver: syslog
       options:
@@ -35,4 +35,4 @@ volumes:
   grafana-volume:
 
 networks:
-  collection-cluster-network:
+  collection-group-network:
